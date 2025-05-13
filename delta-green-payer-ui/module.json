@@ -29,6 +29,6 @@
     "styles/delta-green-ui.css"
   ],
   "url": "https://github.com/Zephyr-jdr/foundry-delta-green-ui.git",
-  "manifest": "https://raw.githubusercontent.com/Zephyr-jdr/foundry-delta-green-ui/master/module.json",
+  "manifest": "https://raw.githubusercontent.com/Zephyr-jdr/foundry-delta-green-ui/main/module.json",
   "download": "https://github.com/Zephyr-jdr/foundry-delta-green-ui/archive/refs/tags/v1.0.0.0.zip"
 }
