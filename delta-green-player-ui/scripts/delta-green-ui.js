@@ -13,7 +13,7 @@ import { MailSystem } from './mail-system.js';
  * Main module class
  */
 export class DeltaGreenUI {
-  static ID = 'delta-green-payer-ui';
+  static ID = 'delta-green-player-ui';
   
   /**
    * Module initialization
@@ -404,6 +404,22 @@ export class DeltaGreenUI {
     const $progressBar = $('#dg-login-progress-bar');
     $progressBar.css('width', '0%');
     
+    // Variable pour stocker le timeout de sécurité
+    let securityTimeout;
+    
+    // Sécurité : forcer la fin de l'animation seulement si elle bug vraiment
+    // On utilise un délai plus long (10s) pour ne pas interférer avec l'animation normale
+    securityTimeout = setTimeout(() => {
+      console.log('Delta Green UI | Animation security timeout triggered after 10s');
+      // Vérifier si l'animation est toujours visible
+      if ($loginAnimation.is(':visible')) {
+        console.log('Delta Green UI | Animation still visible after 10s, forcing end');
+        $loginAnimation.hide();
+        $('#dg-crt-screen').css('opacity', '1');
+        this.forceDisplayLastEntries();
+      }
+    }, 10000);
+    
     // Animation steps timing (in ms)
     const steps = [
       { time: 0, progress: 0, message: 1 },
@@ -430,14 +446,22 @@ export class DeltaGreenUI {
         // Final step - hide animation and show interface
         if (step.time === 5000) {
           setTimeout(() => {
+            console.log('Delta Green UI | Animation final step reached, starting fadeOut');
             $loginAnimation.css('animation', 'fadeOut 0.5s forwards');
             
             setTimeout(() => {
+              console.log('Delta Green UI | Animation complete, showing interface');
               $loginAnimation.hide();
               $('#dg-crt-screen').css('opacity', '1');
               
               // Force immediate display of entries
               this.forceDisplayLastEntries();
+              
+              // Annuler le timeout de sécurité car l'animation s'est terminée normalement
+              if (securityTimeout) {
+                console.log('Delta Green UI | Clearing security timeout as animation completed normally');
+                clearTimeout(securityTimeout);
+              }
             }, 500);
           }, 500);
         }

@@ -300,7 +300,9 @@ export class RecordsManager {
         const record = await Actor.create({
           name: `Case ${caseNumber}: ${surname}, ${firstName}`,
           type: "npc",
-          folder: folder.id
+          folder: folder.id,
+          // Définir les permissions pour que tous les joueurs puissent éditer
+          permission: { default: 3 } // 3 = OWNER (droits complets)
         });
         
         // Add flags
