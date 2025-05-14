@@ -2,7 +2,7 @@
   "id": "delta-green-player-ui",
   "title": "Delta Green Player UI",
   "description": "Delta Green Player UI transforms your Foundry VTT interface into a nostalgic 90s-style CRT computer terminal, specifically designed for Delta Green RPG campaigns. This immersive interface replaces the standard Foundry VTT UI with a retro computer aesthetic featuring scan lines, amber text, and authentic CRT effects.",
-  "version": "1.0.0",
+  "version": "1.0.0.",
   "compatibility": {
     "minimum": "10",
     "verified": "12"
@@ -29,6 +29,6 @@
     "styles/delta-green-ui.css"
   ],
   "url": "https://github.com/Zephyr-jdr/foundry-delta-green-ui.git",
-  "manifest": "https://raw.githubusercontent.com/Zephyr-jdr/foundry-delta-green-ui/main/delta-green-payer-ui/module.json",
+  "manifest": "https://raw.githubusercontent.com/Zephyr-jdr/foundry-delta-green-ui/main/delta-green-player-ui/module.json",
   "download": "https://github.com/Zephyr-jdr/foundry-delta-green-ui/archive/refs/tags/v1.0.0.0/delta-green-player-ui.zip"
 }
